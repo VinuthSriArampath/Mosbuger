@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner | Delete Cashier</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="font body-sub-background">
+    <div class="mainheader">
+        <div class="container-fluid p-3 justify-content-center">
+            <div class="d-flex align-items-center">
+                <img src="logo.png" class="img" style="width: 80px;" alt="logo">
+                <h1 class="text-black fs-1 ">MOS Bugers <span class="fs-3">.Owner</span></h1>
+            </div>
+        </div>
+    </div>
+    <div class="mainsubheader">
+        <div class="container-fluid p-2 justify-content-center">
+            <div class="d-flex align-items-center">
+                <h1 class="text-black fs-3 ps-2">Delete Cashier</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center align-items-center body-sub-background">
+            <div class="col-11 my-3 p-4 rounded-3 content-background">
+                <div class="row mb-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center">
+                        <label for="CustID">Cashier iD :-</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        <input type="text" readonly id="CustID" placeholder="Cashier ID" class="form-control rounded-3 ">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
+                        <label for="CustName">Cashier Name :-</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        <input type="text" readonly id="CustName" placeholder="Cashier Name" class="form-control rounded-3">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
+                        <label for="CustTelephone">Cashier Telephone :-</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        <input type="text" readonly id="CustTelephone" placeholder="Cashier Telephone"
+                            class="form-control rounded-3">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
+                        <label class="fs-5 fw-bolder text-decoration-underline">Login Details</label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
+                        <label for="CashLogin">Login UserName :-</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        <input type="text" readonly id="CustBday" placeholder="Login UserName" class="form-control rounded-3">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
+                        <label for="CashPassword">Login Password :-</label>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        <input type="email" readonly id="CustEmail" placeholder="Login Password" class="form-control rounded-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid ps-5 d-flex custom-align">
+        <button
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6"
+            style="width: 250px;" onclick="ownerviewcashierpage()">Back</button>
+        <button
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6"
+            style="width: 150px;" onclick="ownerviewcashierpage()">Back</button>
+        <button
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6"
+            style="width: 90px;" onclick="ownerviewcashierpage()">Back</button>
+        <button
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6"
+            style="width: 250px;">Delete</button>
+        <button
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6"
+            style="width: 150px;">Delete</button>
+        <button
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6"
+            style="width: 90px;">Delete</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

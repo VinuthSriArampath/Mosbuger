@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckOut Page</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body class="font body-sub-background">
+
+    <body class="font body-background">
+        <div class="mainheader">
+            <div class="container-fluid p-3 justify-content-center">
+                <div class="d-flex align-items-center">
+                    <img src="logo.png" class="img" style="width: 80px;" alt="logo">
+                    <h1 class="text-black fs-1 ">MOS Bugers <span class="fs-3">.Cashier</span></h1>
+                </div>
+            </div>
+        </div>
+        <div class="mainsubheader">
+            <div class="container-fluid p-2 justify-content-center">
+                <div class="d-flex align-items-center">
+                    <h1 class="text-black fs-3 ps-2">CheckOut Order</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center align-items-center body-sub-background">
+                <div class="col-11 my-5 p-4 pt-5 rounded-3 content-background">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <Label for="cusID" class="me-4 mb-2">Customer ID : -</Label>
+                            <input type="text" class="form rounded-5 border-0 p-2 ps-3 mb-2">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 text-lg-end text-md-">
+                            <Label for="OrdID" class="me-5">order ID : -</Label>
+                            <input type="text" class="form rounded-5 border-0 border-0 p-2 ps-3" readonly>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="thead-dark table-dark">
+                                    <tr>
+                                        <th>Item Name</th>
+                                        <th>Qty</th>
+                                        <th>Rate</th>
+                                        <th>Amount</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <Label for="cusID" class="me-4 mb-2">Sub Total : -</Label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 text-lg-end text-md-">
+                            <Label for="OrdID" class="me-5 text" id="subtotal"></Label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-10">
+                            <Label for="cusID" class="me-4 mb-2">Discount : -</Label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 text-lg-end">
+                            <input type="number" id="discount" style="width: 50px;">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <Label for="cusID" class="me-4 mb-2">Total Amount : -</Label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 text-lg-end text-md-">
+                            <Label for="OrdID" class="me-5 text" id="total"></Label>
+                        </div>
+                    </div>
+                    <div class="row mt-5 mb-4">
+                        <div class="col-lg-6 col-md-6 col-12 mb-sm-3 mb-3">
+                            <button
+                                class="btn border-0 text-white button-color rounded-5 d-none d-sm-none d-md-block d-lg-block fs-6"
+                                style="width: 230px;" onclick="cashierplaceorderpage()">Back</button>
+                            <button class="btn border-0 text-white button-color rounded-5 d-block d-sm-block d-md-none d-lg-none"
+                                style="width: 180px;" onclick="cashierplaceorderpage()">Back</button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-end justify-content-md-end mb-sm-3">
+                            <button
+                                class="btn border-0 text-white button-color rounded-5 d-none d-sm-none d-md-block d-lg-block fs-6"
+                                style="width: 230px;" onclick="cashierhomepage()">Confirm Order</button>
+                            <button class="btn border-0 text-white button-color rounded-5 d-block d-sm-block d-md-none d-lg-none"
+                                style="width: 180px;" onclick="cashierhomepage()">Confirm Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+
+</html>
