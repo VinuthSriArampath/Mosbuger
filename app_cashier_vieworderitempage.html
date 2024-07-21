@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheckOut Page</title>
-
+    <title>Cashier | View Order Page</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -26,7 +25,7 @@
         <div class="mainsubheader">
             <div class="container-fluid p-2 justify-content-center">
                 <div class="d-flex align-items-center">
-                    <h1 class="text-black fs-3 ps-2">CheckOut Order</h1>
+                    <h1 class="text-black fs-3 col-6 ps-2">View Order In Detailed</h1>
                 </div>
             </div>
         </div>
@@ -36,13 +35,20 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
                             <Label for="customerid" class="me-4 mb-2">Customer ID : -</Label>
-                            <input type="text" class="form rounded-5 border-0 p-2 ps-3 mb-2" id="customerid">
+                            <input type="text" class="form rounded-5 border-0 p-2 ps-3 mb-2" id="customerid" readonly>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 text-lg-end text-md-">
-                            <Label for="OrdID" class="me-5">order ID : -</Label>
-                            <input type="text"  id="OrdID" class="form rounded-5 border-0 border-0 p-2 ps-3" readonly>
+                            <Label for="orderid" class="me-5">order ID : -</Label>
+                            <input type="text" class="form rounded-5 border-0 border-0 p-2 ps-3" id="orderid" readonly>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <Label for="orderdate" class="me-4 mb-2">Date : -</Label>
+                            <input type="text" class="form rounded-5 border-0 p-2 ps-3 mb-2" id="orderdate" readonly>
+                        </div>
+                    </div>
+
 
                     <div class="container">
                         <div class="table-responsive">
@@ -51,34 +57,31 @@
                                     <tr>
                                         <th>Item Code</th>
                                         <th>Item Name</th>
+                                        <th>Quantity</th>
                                         <th>Unit Price</th>
-                                        <th>Qty</th>
                                         <th>Net Price</th>
                                     </tr>
                                 </thead>
-                                <tbody class="table-danger" id="cartitems">
+                                <tbody class="table-danger" id="tableitembody">
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <div class="row mt-5 mb-4">
-                        <div class="col-lg-6 col-md-6 col-12 mb-sm-3 mb-3">
-                            <button
-                                class="btn border-0 text-white button-color rounded-5 d-none d-sm-none d-md-block d-lg-block fs-6"
-                                style="width: 230px;" onclick="cashierplaceorderpage()">Back</button>
-                            <button class="btn border-0 text-white button-color rounded-5 d-block d-sm-block d-md-none d-lg-none"
-                                style="width: 180px;" onclick="cashierplaceorderpage()">Back</button>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-lg-end justify-content-md-end mb-sm-3">
-                            <button
-                                class="btn border-0 text-white button-color rounded-5 d-none d-sm-none d-md-block d-lg-block fs-6"
-                                style="width: 230px;" onclick="confirmorder()">Confirm Order</button>
-                            <button class="btn border-0 text-white button-color rounded-5 d-block d-sm-block d-md-none d-lg-none"
-                                style="width: 180px;" onclick="confirmorder()">Confirm Order</button>
-                        </div>
+                    <div class="row m-2 mt-5 d-sm-flex">
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid ps-5 d-flex">
+            <button
+                class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6 btn-align"
+                style="width: 250px;" onclick="cashiervieworderpage()">Back</button>
+            <button
+                class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6 btn-align"
+                style="width: 150px;" onclick="cashiervieworderpage()">Back</button>
+            <button
+                class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6 btn-align"
+                style="width: 90px;" onclick="cashiervieworderpage()">Back</button>
         </div>
         <script src="app.js"></script>
         <script src="app_orders.js"></script>

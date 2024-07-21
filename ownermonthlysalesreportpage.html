@@ -37,7 +37,7 @@
                                 <th>Amount</th>
                             </tr>
                         </thead>
-                        <tbody class="table-danger">
+                        <tbody class="table-danger" id="monthlysalesreport">
                         </tbody>
                     </table>
                 </div>
@@ -45,17 +45,34 @@
         </div>
         
     </div>
-    <div class="container-fluid ps-5 d-flex custom-align">
+    <div class="container-fluid ps-5 d-flex">
         <button
-            class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6"
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6 btn-align"
             style="width: 250px;" onclick="ownergenaratereportspage()">Back</button>
         <button
-            class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6"
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6 btn-align"
             style="width: 150px;" onclick="ownergenaratereportspage()">Back</button>
         <button
-            class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6"
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6 btn-align"
             style="width: 90px;" onclick="ownergenaratereportspage()">Back</button>
     </div>
     <script src="app.js"></script>
+    <script>
+        window.onload=function genaratemonthlyreport(){
+        orderarray=JSON.parse(localStorage.getItem("Order"));
+        let monthlysalesreportbody=document.getElementById("monthlysalesreport");
+        let body=``;
+        orderarray.forEach(data => {
+            body+=`
+                    <tr>
+                        <td>${data.orderid}</td>
+                        <td>${data.orderdate}</td>
+                        <td>${data.TotalPrice}</td>
+                    </tr>
+                `
+        });
+        monthlysalesreportbody.innerHTML=body;
+    }
+    </script>
 </body>
 </html> 

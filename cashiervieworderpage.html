@@ -25,27 +25,27 @@
         <div class="mainsubheader">
             <div class="container-fluid p-2 justify-content-center">
                 <div class="d-flex align-items-center">
-                    <h1 class="text-black fs-3 col-6 ps-2"> View Order</h1>
-                    <div class="col-6 d-block d-sm-block d-md-none d-lg-non justify-content-end">
-                        <input type="text" class="mx-2 rounded-5 border-0 p-1 px-3 d-inline" size="10"><button
-                            class="px-5 rounded-5 button-color"><i class="bi bi-search"></i></button>
-
+                    <h1 class="text-black fs-3 col-6 ps-2">View Order</h1>
+                    <div class="col-6 d-block d-sm-block d-md-none d-lg-none justify-content-end">
+                        <input type="text" id="searchby-small" class="mx-2 rounded-5 border-0 p-1 px-3 d-inline" size="5">
+                        <button class="px-4 py-1 rounded-5 button-color border-0"
+                            onclick="searchorder('searchby-small',1)"><i class="bi bi-search"></i></button>
                     </div>
                     <div class="col-6 d-none d-sm-none d-md-flex d-lg-flex justify-content-end">
-                        <input type="text" class="mx-2 rounded-5 border-0 p-1 px-3" size="40"> <input type="button"
-                            class="btn text-white btn-outline px-5 rounded-5 button-color" value="Search">
+                        <input type="text" id="searchby-large" class="mx-2 rounded-5 border-0 p-1 px-3" size="40">
+                        <input type="button" class="btn text-white px-5 rounded-5 button-color border-0" value="Search"
+                            onclick="searchorder('searchby-large',1)">
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="container-fluid">
             <div class="row d-flex justify-content-center align-items-center body-sub-background">
                 <div class="col-11 my-5 p-4 pt-5 rounded-3 content-background">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <Label for="cusID" class="me-4 mb-2">Customer ID : -</Label>
-                            <input type="text" class="form rounded-5 border-0 p-2 ps-3 mb-2" readonly>
+                            <Label for="customerid" class="me-4 mb-2">Customer ID : -</Label>
+                            <input type="text" class="form rounded-5 border-0 p-2 ps-3 mb-2" id="customerid" readonly>
                         </div>
                     </div>
 
@@ -54,13 +54,13 @@
                             <table class="table table-bordered">
                                 <thead class="thead-dark table-dark">
                                     <tr>
-                                        <th>Item Name</th>
-                                        <th>Qty</th>
-                                        <th>Rate</th>
-                                        <th>Amount</th>
+                                        <th>Order ID</th>
+                                        <th>Order Date</th>
+                                        <th>Total Amount</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="table-danger" id="tablebody">
                                 </tbody>
                             </table>
                         </div>
@@ -100,6 +100,7 @@
                 style="width: 90px;" onclick="cashierdeleteorderpage()">Delete</button>
         </div>
         <script src="app.js"></script>
+        <script src="app_orders.js"></script>
     </body>
 
 </html>

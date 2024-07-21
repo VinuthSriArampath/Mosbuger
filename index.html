@@ -14,7 +14,18 @@
 </head>
 <script>
     function mainformalert(){
-        alert("Usernames for owner and cashier :-Admin and Default \n Passwords for owner and cashier :- Admin@123 adn Default@123");
+        let adminlogincount=JSON.parse(localStorage.getItem("adminlogincount")) || 0;
+        localStorage.setItem("adminlogincount",JSON.stringify(adminlogincount)); 
+        let cashierlogincount=JSON.parse(localStorage.getItem("cashierlogincount")) || 0; 
+        localStorage.setItem("cashierlogincount",JSON.stringify(adminlogincount));
+        if(adminlogincount == 0 && cashierlogincount == 0){
+            alert("Usernames for owner and cashier :-Admin and Default \n Passwords for owner and cashier :- Admin@123 adn Default@123");
+        }else if(adminlogincount !== 0 && cashierlogincount == 0){
+            alert("Cashier Default UserName :- Default \n Cashier Default password :- Default@123" );
+        }else if(adminlogincount == 0 && cashierlogincount !== 0){
+            alert("Admin Default UserName :- Admin \n Admin Default password :- Admin@123" );
+        }
+        
     }
     mainformalert();
 </script>

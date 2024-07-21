@@ -23,7 +23,17 @@
     <div class="mainsubheader">
         <div class="container-fluid p-2 justify-content-center">
             <div class="d-flex align-items-center">
-                <h1 class="text-black fs-3 ps-2">Delete Cashier</h1>
+                <h1 class="text-black fs-3 col-6 ps-2">Delete Cashier</h1>
+                <div class="col-6 d-block d-sm-block d-md-none d-lg-none justify-content-end">
+                    <input type="text" id="searchby-small" class="mx-2 rounded-5 border-0 p-1 px-3 d-inline" size="5">
+                    <button class="px-4 py-1 rounded-5 button-color border-0"
+                        onclick="searchcashier('searchby-small')"><i class="bi bi-search"></i></button>
+                </div>
+                <div class="col-6 d-none d-sm-none d-md-flex d-lg-flex justify-content-end">
+                    <input type="text" id="searchby-large" class="mx-2 rounded-5 border-0 p-1 px-3" size="40">
+                    <input type="button" class="btn text-white px-5 rounded-5 button-color border-0" value="Search"
+                        onclick="searchcashier('searchby-large')">
+                </div>
             </div>
         </div>
     </div>
@@ -32,26 +42,26 @@
             <div class="col-11 my-3 p-4 rounded-3 content-background">
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center">
-                        <label for="CustID">Cashier iD :-</label>
+                        <label for="cashierid">Cashier iD :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" readonly id="CustID" placeholder="Cashier ID" class="form-control rounded-3 ">
+                        <input type="text" readonly id="cashierid" placeholder="Cashier ID" class="form-control rounded-3 ">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CustName">Cashier Name :-</label>
+                        <label for="cashiername">Cashier Name :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" readonly id="CustName" placeholder="Cashier Name" class="form-control rounded-3">
+                        <input type="text" readonly id="cashiername" placeholder="Cashier Name" class="form-control rounded-3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CustTelephone">Cashier Telephone :-</label>
+                        <label for="cashiertel">Cashier Telephone :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" readonly id="CustTelephone" placeholder="Cashier Telephone"
+                        <input type="text" readonly id="cashiertel" placeholder="Cashier Telephone"
                             class="form-control rounded-3">
                     </div>
                 </div>
@@ -62,18 +72,18 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CashLogin">Login UserName :-</label>
+                        <label for="cashierusername">Login UserName :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" readonly id="CustBday" placeholder="Login UserName" class="form-control rounded-3">
+                        <input type="text" readonly id="cashierusername" placeholder="Login UserName" class="form-control rounded-3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CashPassword">Login Password :-</label>
+                        <label for="cashierpassword">Login Password :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="email" readonly id="CustEmail" placeholder="Login Password" class="form-control rounded-3">
+                        <input type="password" readonly id="cashierpassword" placeholder="Login Password" class="form-control rounded-3">
                     </div>
                 </div>
             </div>
@@ -91,15 +101,16 @@
             style="width: 90px;" onclick="ownerviewcashierpage()">Back</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6"
-            style="width: 250px;">Delete</button>
+            style="width: 250px;" onclick="deletecashier()">Delete</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6"
-            style="width: 150px;">Delete</button>
+            style="width: 150px;" onclick="deletecashier()">Delete</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6"
-            style="width: 90px;">Delete</button>
+            style="width: 90px;" onclick="deletecashier()">Delete</button>
     </div>
     <script src="app.js"></script>
+    <script src="app_cashier.js"></script>
 </body>
 
 </html>

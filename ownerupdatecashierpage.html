@@ -43,10 +43,10 @@
                 <div class="row mb-3">
                     <div
                         class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center">
-                        <label for="cashierID">Cashier iD :-</label>
+                        <label for="cashierid">Cashier ID :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" readonly id="cashierID" placeholder="Cashier ID"
+                        <input type="text" readonly id="cashierid" placeholder="Cashier ID"
                             class="form-control rounded-3 ">
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         <label for="cashiertel">Cashier Telephone :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" id="cashiertel" placeholder="Cashier Telephone"
+                        <input type="text" readonly id="cashiertel" placeholder="Cashier Telephone"
                             class="form-control rounded-3">
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                         <label for="cashierusername">Login UserName :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" id="cashierusername" placeholder="Login UserName"
+                        <input type="text" readonly id="cashierusername" placeholder="Login UserName"
                             class="form-control rounded-3">
                     </div>
                 </div>
@@ -93,7 +93,8 @@
                     <div class="col-lg-7 col-md-7 col-sm-12">
                         <input type="password" id="cashierpassword" placeholder="Login Password"
                             class="form-control rounded-3">
-                        <input type="checkbox" id="viewpassword" onclick="passwordvisiblity()"> Show Password
+                        <input type="checkbox" id="viewpassword" onclick="passwordvisiblity('cashierpassword')"> Show
+                        Password
                     </div>
                 </div>
             </div>
@@ -107,13 +108,14 @@
         <button class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6"
             style="width: 90px;" onclick="ownerviewcashierpage()">Back</button>
         <button class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6"
-            style="width: 250px;">Update</button>
+            style="width: 250px;" onclick="updatecashier()">Update</button>
         <button class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6"
-            style="width: 150px;">Update</button>
+            style="width: 150px;" onclick="updatecashier()">Update</button>
         <button class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6"
-            style="width: 90px;">Update</button>
+            style="width: 90px;" onclick="updatecashier()">Update</button>
     </div>
     <script src="app.js"></script>
+    <script src="app_cashier.js"></script>
 </body>
 
 </html>

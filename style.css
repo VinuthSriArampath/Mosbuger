@@ -49,20 +49,9 @@
 }
 
 .btn-align{
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+    transform: translateY(-10px);
 }
-.btn-align-2{
-    position: absolute;
-    bottom: 20px;
-    left: 280px;
-}
-.btn-align-3{
-    position: absolute;
-    bottom: 20px;
-    left: 540px;
-}
+
 
 .custom-align{
     position: absolute;
@@ -76,28 +65,4 @@
 .custom-align-qty{
     position: absolute;
     bottom: 50px;
-}
-@media (max-width: 991px) {
-    .btn-align-2 {
-        position: absolute;
-        bottom: 20px;
-        left: 200px;
-    }
-    .btn-align-3 {
-        position: absolute;
-        bottom: 20px;
-        left: 400px;
-    }
-}
-@media (max-width: 767px) {
-    .btn-align-2 {
-        position: absolute;
-        bottom: 20px;
-        left: 120px;
-    }
-    .btn-align-3 {
-        position: absolute;
-        bottom: 20px;
-        left: 220px;
-    }
 }

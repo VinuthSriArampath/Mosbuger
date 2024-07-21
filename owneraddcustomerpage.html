@@ -31,52 +31,44 @@
         <div class="row d-flex justify-content-center align-items-center body-sub-background">
             <div class="col-11 my-3 p-4 rounded-3 content-background">
                 <div class="row mb-3">
-                    <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center">
-                        <label for="CustID">Customer iD :-</label>
+                    <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
+                        <label for="customername">Customer Name :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" id="CustID" placeholder="Customer ID" class="form-control rounded-3">
+                        <input type="text" id="customername" placeholder="Customer Name" class="form-control rounded-3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CustName">Customer Name :-</label>
+                        <label for="customerphone">Customer Telephone :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" id="CustName" placeholder="Customer Name" class="form-control rounded-3">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CustTelephone">Customer Telephone :-</label>
-                    </div>
-                    <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" id="CustTelephone" placeholder="Customer Telephone"
+                        <input type="text" id="customerphone" placeholder="Customer Telephone"
                             class="form-control rounded-3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CustBday">Customer Birthday :-</label>
+                        <label for="customerbday">Customer Birthday :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="date" id="CustBday" placeholder="Customer Birthday" class="form-control rounded-3">
+                        <input type="date" id="customerbday" placeholder="Customer Birthday" class="form-control rounded-3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CustEmail">Customer Email :-</label>
+                        <label for="customeremail">Customer Email :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="email" id="CustEmail" placeholder="Customer Email" class="form-control rounded-3">
+                        <input type="email" id="customeremail" placeholder="Customer Email" class="form-control rounded-3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center">
-                        <label for="CustAddress">Customer Address :-</label>
+                        <label for="customeraddress">Customer Address :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <textarea name="" id="" class="form-control"></textarea>
+                        <textarea name="" id="customeraddress" class="form-control"></textarea>
                     </div>
                 </div>
             </div>
@@ -94,15 +86,16 @@
             style="width: 90px;" onclick="ownerhomepage()">Back</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6"
-            style="width: 250px;">Add</button>
+            style="width: 250px;" onclick="addcustomer()">Add</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6"
-            style="width: 150px;">Add</button>
+            style="width: 150px;" onclick="addcustomer()">Add</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6"
-            style="width: 90px;">Add</button>
+            style="width: 90px;" onclick="addcustomer()">Add</button>
     </div>
     <script src="app.js"></script>
+    <script src="app_customer.js"></script>
 </body>
 
 </html>

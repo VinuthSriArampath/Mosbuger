@@ -23,15 +23,16 @@
     <div class="mainsubheader">
         <div class="container-fluid p-2 justify-content-center">
             <div class="d-flex align-items-center">
-                <h1 class="text-black fs-3 col-6 ps-2"> Update Customer</h1>
-                <div class="col-6 d-block d-sm-block d-md-none d-lg-non justify-content-end">
-                    <input type="text" class="mx-2 rounded-5 border-0 p-1 px-3 d-inline" size="10"><button
-                        class="px-5 rounded-5 button-color"><i class="bi bi-search"></i></button>
-    
+                <h1 class="text-black fs-3 col-6 ps-2">Update Customer</h1>
+                <div class="col-6 d-block d-sm-block d-md-none d-lg-none justify-content-end">
+                    <input type="text" id="searchby-small" class="mx-2 rounded-5 border-0 p-1 px-3 d-inline" size="5">
+                    <button class="px-4 py-1 rounded-5 button-color border-0"
+                        onclick="searchcustomer('searchby-small')"><i class="bi bi-search"></i></button>
                 </div>
                 <div class="col-6 d-none d-sm-none d-md-flex d-lg-flex justify-content-end">
-                    <input type="text" class="mx-2 rounded-5 border-0 p-1 px-3" size="40"> <input type="button"
-                        class="btn text-white btn-outline px-5 rounded-5 button-color" value="Search">
+                    <input type="text" id="searchby-large" class="mx-2 rounded-5 border-0 p-1 px-3" size="40">
+                    <input type="button" class="btn text-white px-5 rounded-5 button-color border-0" value="Search"
+                        onclick="searchcustomer('searchby-large')">
                 </div>
             </div>
         </div>
@@ -41,51 +42,51 @@
             <div class="col-11 my-3 p-4 rounded-3 content-background">
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center">
-                        <label for="CustID">Customer iD :-</label>
+                        <label for="customerid">Customer iD :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" id="CustID" placeholder="Customer ID" class="form-control rounded-3">
+                        <input type="text" readonly id="customerid" placeholder="Customer ID" class="form-control rounded-3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CustName">Customer Name :-</label>
+                        <label for="customername">Customer Name :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" id="CustName" placeholder="Customer Name" class="form-control rounded-3">
+                        <input type="text" id="customername" placeholder="Customer Name" class="form-control rounded-3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CustTelephone">Customer Telephone :-</label>
+                        <label for="customerphone">Customer Telephone :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="text" id="CustTelephone" placeholder="Customer Telephone"
+                        <input type="text" readonly id="customerphone" placeholder="Customer Telephone"
                             class="form-control rounded-3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CustBday">Customer Birthday :-</label>
+                        <label for="customerbday">Customer Birthday :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="date" id="CustBday" placeholder="Customer Birthday" class="form-control rounded-3">
+                        <input type="date" id="customerbday" placeholder="Customer Birthday" class="form-control rounded-3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center ">
-                        <label for="CustEmail">Customer Email :-</label>
+                        <label for="customeremail">Customer Email :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <input type="email" id="CustEmail" placeholder="Customer Email" class="form-control rounded-3">
+                        <input type="email" id="customeremail" placeholder="Customer Email" class="form-control rounded-3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-3 col-md-3 col-sm-12 d-sm-flex justify-content-sm-start justify-content-md-center justify-content-lg-center">
-                        <label for="CustAddress">Customer Address :-</label>
+                        <label for="customeraddress">Customer Address :-</label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12">
-                        <textarea name="" id="" class="form-control"></textarea>
+                        <textarea name="" id="customeraddress" class="form-control"></textarea>
                     </div>
                 </div>
             </div>
@@ -103,15 +104,16 @@
             style="width: 90px;" onclick="ownerviewcustomerpage()">Back</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6"
-            style="width: 250px;">Update</button>
+            style="width: 250px;" onclick="updatecustomer()">Update</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6"
-            style="width: 150px;">Update</button>
+            style="width: 150px;" onclick="updatecustomer()">Update</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6"
-            style="width: 90px;">Update</button>
+            style="width: 90px;" onclick="updatecustomer()">Update</button>
     </div>
     <script src="app.js"></script>
+    <script src="app_customer.js"></script>
 </body>
 
 </html>

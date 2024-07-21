@@ -22,7 +22,17 @@
         <div class="mainsubheader">
             <div class="container-fluid p-2 justify-content-center">
                 <div class="d-flex align-items-center">
-                    <h1 class="text-black fs-3 ps-2">Delete Order</h1>
+                    <h1 class="text-black fs-3 col-6 ps-2">Delete Order</h1>
+                    <div class="col-6 d-block d-sm-block d-md-none d-lg-none justify-content-end">
+                        <input type="text" id="searchby-small" class="mx-2 rounded-5 border-0 p-1 px-3 d-inline" size="5">
+                        <button class="px-4 py-1 rounded-5 button-color border-0"
+                            onclick="searchorderdel('searchby-small')"><i class="bi bi-search"></i></button>
+                    </div>
+                    <div class="col-6 d-none d-sm-none d-md-flex d-lg-flex justify-content-end">
+                        <input type="text" id="searchby-large" class="mx-2 rounded-5 border-0 p-1 px-3" size="40">
+                        <input type="button" class="btn text-white px-5 rounded-5 button-color border-0" value="Search"
+                            onclick="searchorderdel('searchby-large')">
+                    </div>
                 </div>
             </div>
         </div>
@@ -31,22 +41,18 @@
                 <div class="col-11 my-5 p-4 pt-5 rounded-3 content-background">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <Label for="cusID" class="me-4 mb-2">Customer ID : -</Label>
-                            <input type="text" class="form rounded-5 border-0 p-2 ps-3 mb-2" readonly>
+                            <Label for="customerid" class="me-4 mb-2">Customer ID : -</Label>
+                            <input type="text" class="form rounded-5 border-0 p-2 ps-3 mb-2" id="customerupdelid" readonly>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 text-lg-end text-md-">
-                            <Label for="OrdID" class="me-5">order ID : -</Label>
-                            <input type="text" class="form rounded-5 border-0 border-0 p-2 ps-3" readonly>
+                            <Label for="orderid" class="me-5">order ID : -</Label>
+                            <input type="text" class="form rounded-5 border-0 border-0 p-2 ps-3" id="orderupdelid" readonly>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <Label for="cusID" class="me-4 mb-2">Date : -</Label>
-                            <input type="text" class="form rounded-5 border-0 p-2 ps-3 mb-2" readonly>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 text-lg-end text-md-">
-                            <Label for="OrdID" class="me-5">Discount : -</Label>
-                            <input type="text" class="form rounded-5 border-0 border-0 p-2 ps-3" readonly>
+                            <Label for="orderdate" class="me-4 mb-2">Date : -</Label>
+                            <input type="text" class="form rounded-5 border-0 p-2 ps-3 mb-2" id="orderupdeldate" readonly>
                         </div>
                     </div>
 
@@ -55,18 +61,20 @@
                             <table class="table table-bordered">
                                 <thead class="thead-dark table-dark">
                                     <tr>
+                                        <th>Item Code</th>
                                         <th>Item Name</th>
-                                        <th>Qty</th>
-                                        <th>Rate</th>
-                                        <th>Amount</th>
-
+                                        <th>Quantity</th>
+                                        <th>Unit Price</th>
+                                        <th>Net Price</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody class="table-danger" id="tableupdelbody">
                                 </tbody>
                             </table>
                         </div>
-                    </div>  
+                    </div>
+                    <div class="row m-2 mt-5 d-sm-flex">
+                    </div>
                 </div>
             </div>
         </div>
@@ -82,14 +90,15 @@
                 style="width: 90px;" onclick="cashiervieworderpage()">Back</button>
             <button
                 class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6"
-                style="width: 250px;">Delete</button>
+                style="width: 250px;" onclick="deleteorder()">Delete</button>
             <button
                 class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6"
-                style="width: 150px;">Delete</button>
+                style="width: 150px;" onclick="deleteorder()">Delete</button>
             <button
                 class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6"
-                style="width: 90px;">Delete</button>
+                style="width: 90px;" onclick="deleteorder()">Delete</button>
         </div>
         <script src="app.js"></script>
+        <script src="app_orders.js"></script>
 </body>
 </html>
