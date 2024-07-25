@@ -4,13 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Owner | Annual Sales Report</title>
+    <title>Owner | Item Count Report</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 
 <body class="font body-sub-background">
@@ -25,7 +23,7 @@
     <div class="mainsubheader">
         <div class="container-fluid p-2 justify-content-center">
             <div class="d-flex align-items-center">
-                <h1 class="text-black fs-3 ps-2">Annual Sales Report</h1>
+                <h1 class="text-black fs-3 ps-2">Best Customer Report Page</h1>
             </div>
         </div>
     </div>
@@ -36,12 +34,12 @@
                     <table class="table table-bordered">
                         <thead class="thead-dark table-dark">
                             <tr>
-                                <th>Order ID</th>
-                                <th>Date</th>
-                                <th>Amount</th>
+                                <th>Customer ID</th>
+                                <th>Customer Name</th>
+                                <th>Total Amount</th>
                             </tr>
                         </thead>
-                        <tbody class="table-danger" id="annualsalesreport">
+                        <tbody class="table-danger" id="bestcustomerreport">
                         </tbody>
                     </table>
                 </div>
@@ -61,36 +59,35 @@
             style="width: 90px;" onclick="ownergenaratereportspage()">Back</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6 btn-align"
-            style="width: 250px;" onclick="AnnualGenerate()">Download PDF</button>
+            style="width: 250px;" onclick="BestCustomerGenarate()">Download PDF</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6 btn-align"
-            style="width: 150px;" onclick="AnnualGenerate()">Download PDF</button>
+            style="width: 150px;" onclick="BestCustomerGenarate()">Download PDF</button>
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6 btn-align"
-            style="width: 150px;" onclick="AnnualGenerate()">Download PDF</button>
+            style="width: 150px;" onclick="BestCustomerGenarate()">Download PDF</button>
     </div>
     <script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
     <script src="app.js"></script>
     <script src="app_report.js"></script>
     <script>
         window.onload = function () {
-            orderarray = JSON.parse(localStorage.getItem("Order"));
-            let annualsalesreportbody = document.getElementById("annualsalesreport");
+            let bestcustomerreportbody = document.getElementById("bestcustomerreport");
             let body = ``;
-            orderarray.forEach(data => {
-                if (validateyearly(data.orderdate)) {
-                    body += `
-                <tr>
-                    <td>${data.orderid}</td>
-                    <td>${data.orderdate}</td>
-                    <td>${data.TotalPrice}</td>
-                </tr>
-            `
-                }
+            bestcustomer = getbestcustomer();
+            bestcustomer.forEach(data => {
+                body += `
+                        <tr>
+                            <td>${data.customerid}</td>
+                            <td>${data.name}</td>
+                            <td>${data.TotalAmount}</td>
+                        </tr>
+                    `
             });
-            annualsalesreportbody.innerHTML = body;
+            bestcustomerreportbody.innerHTML = body;
         }
     </script>
+
 
 </body>
 

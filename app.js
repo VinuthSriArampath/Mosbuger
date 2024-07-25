@@ -241,6 +241,9 @@ function ownerviewitemspage() {
 function ownervieworderpage() {
     window.location.href = './ownervieworderpage.html';
 }
+function ownerbestcustomerreportpage() {
+    window.location.href = './ownerbestcustomerreportpage.html';
+}
 
 
 

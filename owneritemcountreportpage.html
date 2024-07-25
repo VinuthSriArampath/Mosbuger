@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 <body class="font body-sub-background">
     <div class="mainheader">
         <div class="container-fluid p-3 justify-content-center">
@@ -46,7 +48,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
     <div class="container-fluid ps-5 d-flex ">
         <button
@@ -58,27 +60,39 @@
         <button
             class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6 btn-align"
             style="width: 90px;" onclick="ownergenaratereportspage()">Back</button>
+        <button
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-none d-lg-block fs-6 btn-align"
+            style="width: 250px;" onclick="ItemCountGenarate()">Download PDF</button>
+        <button
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-none d-sm-none d-md-block d-lg-none fs-6 btn-align"
+            style="width: 150px;" onclick="ItemCountGenarate()">Download PDF</button>
+        <button
+            class="text-white me-2 p-2 button-color border-0 rounded-5 d-block d-sm-block d-md-none d-lg-none fs-6 btn-align"
+            style="width: 150px;" onclick="ItemCountGenarate()">Download PDF</button>
     </div>
+    <script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
     <script src="app.js"></script>
+    <script src="app_report.js"></script>
     <script>
-        window.onload=function genaratereport(){
-            itemarray=JSON.parse(localStorage.getItem("Items"));
-            let itemcountreportbody=document.getElementById("itemcountreport");
-            let body=``;
+        window.onload = function () {
+            itemarray = JSON.parse(localStorage.getItem("Items"));
+            let itemcountreport = document.getElementById("itemcountreport");
+            let body = ``;
             itemarray.forEach(data => {
-                body+=`
-                        <tr>
-                            <td>${data.itemid}</td>
-                            <td>${data.name}</td>
-                            <td>${data.expdate}</td>
-                            <td>${data.stock}</td>
-                            <td>${data.unitprice}</td>
-                            <td>${(data.unitprice)*(data.stock)}</td>
-                        </tr>
-                    `
+                body += `
+                    <tr>
+                        <td>${data.itemid}</td>
+                        <td>${data.name}</td>
+                        <td>${data.expdate}</td>
+                        <td>${data.stock}</td>
+                        <td>${data.unitprice}</td>
+                        <td>${(data.unitprice) * (data.stock)}</td>
+                    </tr>
+                `
             });
-            itemcountreportbody.innerHTML=body;
+            itemcountreport.innerHTML = body;
         }
     </script>
 </body>
-</html> 
+
+</html>

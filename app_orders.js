@@ -174,7 +174,7 @@ function searchorder(id,numtaken){
     num=numtaken; 
     let searchby=document.getElementById(id).value;
     let tablebody=document.getElementById("tablebody");
-    if(searchby!==""){
+    if(searchindexorder!==""){
         orderarray = JSON.parse(localStorage.getItem("Order")) || orderarray; 
         let found=false;
         for (let i = 0; i < orderarray.length; i++) {
@@ -212,7 +212,7 @@ function searchorder(id,numtaken){
             
         }
         if(found==false){
-            alert("Items Not Found !!");
+            alert("Order Not Found !!");
         }
     }else{
         searchindexorder=null
@@ -222,11 +222,10 @@ function searchorder(id,numtaken){
 function vieworder(orderid){
     let vieworderid=orderid;
     localStorage.setItem("vieworderid",JSON.stringify(vieworderid));
-    console.log(num);
     if(num==1){
         app_custoemer_vieworderitempage();
     }else if(num==2){
-
+        app_owner_vieworderitempage();
     }
 }
 viewitemdetails();
@@ -262,6 +261,8 @@ function viewitemdetails() {
             found=true;
         }
     }
+    vieworderid=null;
+    localStorage.setItem("vieworderid",JSON.stringify(vieworderid));
 }
 function searchorderup(id){
     let searchby=document.getElementById(id).value;
