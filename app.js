@@ -17,7 +17,7 @@ localStorage.setItem("adminlogincount",JSON.stringify(adminlogincounthome));
 let customerarrayhome = JSON.parse(localStorage.getItem("Customer")) || [];
 localStorage.setItem("Customer",JSON.stringify(customerarrayhome));
 
-let customercounthome = JSON.parse(localStorage.getItem("customercount")) || 0;
+let customercounthome = JSON.parse(localStorage.getItem("customercount")) || 1;
 localStorage.setItem("customercount",JSON.stringify(customercounthome));
 
 // Item Related LocalStorages.

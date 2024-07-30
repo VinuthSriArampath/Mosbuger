@@ -4,14 +4,14 @@ let customercount = JSON.parse(localStorage.getItem("customercount"));
 function GenarateCustomerID() {
     customercount = JSON.parse(localStorage.getItem("customercount"));
     let str = "";
-    if (customercount - 1 < 9) {
-        str = "CUS-000" + (customercount + 1);
+    if (customercount < 9) {
+        str = "CUS-000" + (customercount);
     } else if (size - 1 < 99) {
-        str = "CUS-00" + (customercount + 1);
+        str = "CUS-00" + (customercount);
     } else if (size - 1 < 999) {
-        str = "CUS-0" + (customercount + 1);
+        str = "CUS-0" + (customercount);
     } else if (size - 1 < 9999) {
-        str = "CUS-" + (customercount + 1);
+        str = "CUS-" + (customercount);
     }
     return str;
 }
