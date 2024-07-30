@@ -13,8 +13,6 @@ function GenarateCustomerID() {
     } else if (size - 1 < 9999) {
         str = "CUS-" + (customercount + 1);
     }
-    customercount++;
-    localStorage.setItem("customercount",JSON.stringify(customercount));
     return str;
 }
 function validatecustomername(name) {
@@ -217,7 +215,8 @@ function addcustomer() {
                         });
                         localStorage.setItem("Customer", JSON.stringify(customerarray));
                         alert("Customer Added Successfully !!");
-
+                        customercount++;
+                        localStorage.setItem("customercount",JSON.stringify(customercount));
                         document.getElementById("customername").value = "";
                         document.getElementById("customerphone").value = "";
                         document.getElementById("customerbday").value = "";
