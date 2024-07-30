@@ -6,16 +6,14 @@ function GenarateItemID(){
     itemcount=JSON.parse(localStorage.getItem("itemcount"));
     let str="";
     if(itemcount-1<9){
-        str="P000"+(itemcount+1);  
+        str="P000"+(itemcount);  
     }else if(itemcount-1<99){
-        str="P00"+(itemcount+1);
+        str="P00"+(itemcount);
     }else if(itemcount-1<999){
-        str="P0"+(itemcount+1);
+        str="P0"+(itemcount);
     }else if(size-1<9999){
-        str="P"+(itemcount+1);
+        str="P"+(itemcount);
     }
-    itemcount++;
-    localStorage.setItem("itemcount",itemcount);
     return str;
 }
 function validateitemname(name){
@@ -183,7 +181,12 @@ function validateitemexpdate(bday){			//--> VALIDATE DATE OF BIRTH METHOD.
 }
 function validateitestock(stock){
     if(stock!==""){
-        return true;
+        if (stock>=0) {
+            return true;
+        }else{
+            return false;
+        }
+        
     }
     return false;
 }
@@ -237,6 +240,8 @@ function additem(){
                                 });
                                 localStorage.setItem("Items",JSON.stringify(itemsarray));
                                 alert("Items Added Successfully !!");
+                                itemcount++;
+                                localStorage.setItem("itemcount",itemcount);
                                 document.getElementById("itemname").value="";
                                 document.getElementById("itemexpirydate").value="";
                                 document.getElementById("itemstocklevel").value="";

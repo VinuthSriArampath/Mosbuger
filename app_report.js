@@ -1,9 +1,14 @@
 let monthlyorders = [];
 let annualorders = [];
-const currentdate = new Date();
-const currentYear = currentdate.getFullYear();
-const currentMonthValue = currentdate.getMonth() + 1;
+const current = new Date();
+const currentdate = current.getDate();
+const currentYear = current.getFullYear();
+const currentMonthValue = current.getMonth() + 1;
 
+let monthlyindex=JSON.parse(localStorage.getItem("monthlyindex"));
+let annualindex=JSON.parse(localStorage.getItem("annualindex"));
+let itemcountindex=JSON.parse(localStorage.getItem("itemcountindex"));
+let bestcustomerindex=JSON.parse(localStorage.getItem("bestcustomerindex"));
 
 function validatemonthly(dateInput) {
     const year = Number(dateInput.substring(0, 4));
@@ -27,6 +32,7 @@ function validateyearly(dateInput) {
 }
 
 function MonthlyGenerate() {
+    monthlyindex++;
     orderarray=JSON.parse(localStorage.getItem("Order"));
     orderarray.forEach(data => {
         if (validatemonthly(data.orderdate)) {
@@ -68,10 +74,10 @@ function MonthlyGenerate() {
             website: "www.MosBurgers.com",
         },
         invoice: {
-            label: "Invoice #: ",
-            num: 19,
-            invDate: "Payment Date: 01/01/2021 18:12",
-            invGenDate: "Invoice Date: 02/02/2021 10:17",
+            label: "Monthly Sales Report: ",
+            num: monthlyindex,
+            invDate: `From: 1/${currentMonthValue}/${currentYear}`,
+            invGenDate: `To: ${currentdate}/${currentMonthValue}/${currentYear}`,
             headerBorder: false,
             tableBodyBorder: false,
             header: [
@@ -122,6 +128,7 @@ function MonthlyGenerate() {
 }
 
 function AnnualGenerate() {
+    annualindex++;
     orderarray=JSON.parse(localStorage.getItem("Order"));
     orderarray.forEach(data => {
         if (validateyearly(data.orderdate)) {
@@ -163,10 +170,10 @@ function AnnualGenerate() {
             website: "www.MosBurgers.com",
         },
         invoice: {
-            label: "Invoice #: ",
-            num: 19,
-            invDate: "Payment Date: 01/01/2021 18:12",
-            invGenDate: "Invoice Date: 02/02/2021 10:17",
+            label: "Annual Sales Report ",
+            num: annualindex,
+            invDate: `From: 1/1/${currentYear}`,
+            invGenDate: `To: ${currentdate}/${currentMonthValue}/${currentYear}`,
             headerBorder: false,
             tableBodyBorder: false,
             header: [
@@ -217,6 +224,7 @@ function AnnualGenerate() {
 }
 
 function ItemCountGenarate() {
+    itemcountindex++;
     itemarray = JSON.parse(localStorage.getItem("Items"))
     var itemcount = {
         outputType: jsPDFInvoiceTemplate.Save,
@@ -253,10 +261,10 @@ function ItemCountGenarate() {
             website: "www.MosBurgers.com",
         },
         invoice: {
-            label: "Invoice #: ",
-            num: 19,
-            invDate: "Payment Date: 01/01/2021 18:12",
-            invGenDate: "Invoice Date: 02/02/2021 10:17",
+            label: "Item Count Report",
+            num: itemcountindex,
+            invDate: ``,
+            invGenDate: `As at: ${currentdate}/${currentMonthValue}/${currentYear}`,
             headerBorder: false,
             tableBodyBorder: false,
             header: [
@@ -315,22 +323,24 @@ function getbestcustomer() {
     let bestcustomer = [];
     orderarray = JSON.parse(localStorage.getItem("Order"));
     customerarray = JSON.parse(localStorage.getItem("Customer"));
-    index = 0;
-    customerarray.forEach(customer => {
-        bestcustomer.push({
-            customerid: customer.customerid,
-            name: customer.name,
-            TotalAmount: 0
-        })
-        orderarray.forEach(order => {
-            bestcustomer.push
-            if (customer.customerid == order.customerid) {
-                bestcustomer[index].TotalAmount += order.TotalPrice;
-            }
+    if (orderarray.length!==0) {
+        index = 0;
+        customerarray.forEach(customer => {
+            bestcustomer.push({
+                customerid: customer.customerid,
+                name: customer.name,
+                TotalAmount: 0
+            })
+            orderarray.forEach(order => {
+                bestcustomer.push
+                if (customer.customerid == order.customerid) {
+                    bestcustomer[index].TotalAmount += order.TotalPrice;
+                }
+            });
+            index++;
         });
-        index++;
-    });
-    bestcustomer.sort((a, b) => b.TotalAmount - a.TotalAmount);
+        bestcustomer.sort((a, b) => b.TotalAmount - a.TotalAmount);
+    }
     return bestcustomer;
 }
 

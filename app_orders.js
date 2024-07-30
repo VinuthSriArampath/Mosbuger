@@ -362,7 +362,7 @@ function updateorder() {
         document.getElementById("orderupdeldate").value = "";
         document.getElementById("searchby-small").value = "";
         document.getElementById("searchby-large").value = "";
-        document.getElementById("tableupdelbody").value = "";
+        document.getElementById("tableupdelbody").innerHTML = null;
 
         localStorage.setItem("Order", JSON.stringify(orderarray));
         alert("Order Updated Successfully !!");
@@ -377,6 +377,12 @@ function deleteorder(){
     }else{
         orderarray.splice(searchindexorder,1);
         localStorage.setItem("Order",JSON.stringify(orderarray));
+        document.getElementById("customerupdelid").value = "";
+        document.getElementById("orderupdelid").value = "";
+        document.getElementById("orderupdeldate").value = "";
+        document.getElementById("searchby-small").value = "";
+        document.getElementById("searchby-large").value = "";
+        document.getElementById("tableupdelbody").innerHTML = null;
         alert("Order Deleted Successfully !!");
         searchindexorder=null;
     }

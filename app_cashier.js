@@ -14,8 +14,6 @@ function GenarateCashierID(){
     }else if(cashiercount-1<9999){
         str="CSH-"+cashiercount;
     }
-    cashiercount++;
-    localStorage.setItem("cashiercount",cashiercount);
     return str;
 }
 function validatename(name){
@@ -84,6 +82,8 @@ function addcashier(){
                         phoneInput=document.getElementById('cashiertel').value="";
                         document.getElementById('cashierusername').value="";
                         document.getElementById('cashierpassword').value="";
+                        cashiercount++;
+                        localStorage.setItem("cashiercount",cashiercount);
                     }else{
                         cashierarray.push({
                             cashierid : cashieridInput,
@@ -98,6 +98,8 @@ function addcashier(){
                         phoneInput=document.getElementById('cashiertel').value="";
                         document.getElementById('cashierusername').value="";
                         document.getElementById('cashierpassword').value="";
+                        cashiercount++;
+                        localStorage.setItem("cashiercount",cashiercount);
                     }
                 }else{
                     alert("Invalid Password !!")
@@ -170,6 +172,13 @@ function updatecashier(){
                         localStorage.setItem("Cashier",JSON.stringify(cashierarray));
                         alert("Cashier Updated Successfully !!");
                         searchindex=null;
+                        document.getElementById("cashierid").value="";
+                        document.getElementById("cashiername").value="";
+                        document.getElementById("cashiertel").value="";
+                        document.getElementById("cashierusername").value="";
+                        document.getElementById("cashierpassword").value="";
+                        document.getElementById("searchby-small").value="";
+                        document.getElementById("searchby-large").value="";
                     }else{
                         alert("Invalid Password !!")
                     }

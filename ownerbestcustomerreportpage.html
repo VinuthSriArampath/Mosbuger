@@ -72,19 +72,23 @@
     <script src="app_report.js"></script>
     <script>
         window.onload = function () {
-            let bestcustomerreportbody = document.getElementById("bestcustomerreport");
-            let body = ``;
-            bestcustomer = getbestcustomer();
-            bestcustomer.forEach(data => {
-                body += `
-                        <tr>
-                            <td>${data.customerid}</td>
-                            <td>${data.name}</td>
-                            <td>${data.TotalAmount}</td>
-                        </tr>
-                    `
-            });
-            bestcustomerreportbody.innerHTML = body;
+            let orderarray=JSON.parse(localStorage.getItem("Order"));
+            if (orderarray.length!==0) {
+                let bestcustomerreportbody = document.getElementById("bestcustomerreport");
+                let body = ``;
+                bestcustomer = getbestcustomer();
+                bestcustomer.forEach(data => {
+                    body += `
+                            <tr>
+                                <td>${data.customerid}</td>
+                                <td>${data.name}</td>
+                                <td>${data.TotalAmount}</td>
+                            </tr>
+                        `
+                });
+                bestcustomerreportbody.innerHTML = body;
+            }
+            
         }
     </script>
 

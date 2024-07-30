@@ -26,12 +26,12 @@
                     <div class="col-6 d-block d-sm-block d-md-none d-lg-none justify-content-end">
                         <input type="text" id="searchby-small" class="mx-2 rounded-5 border-0 p-1 px-3 d-inline" size="5">
                         <button class="px-4 py-1 rounded-5 button-color border-0"
-                            onclick="searchorderupdel('searchby-small')"><i class="bi bi-search"></i></button>
+                            onclick="searchorderup('searchby-small')"><i class="bi bi-search"></i></button>
                     </div>
                     <div class="col-6 d-none d-sm-none d-md-flex d-lg-flex justify-content-end">
                         <input type="text" id="searchby-large" class="mx-2 rounded-5 border-0 p-1 px-3" size="40">
                         <input type="button" class="btn text-white px-5 rounded-5 button-color border-0" value="Search"
-                            onclick="searchorderupdel('searchby-large')">
+                            onclick="searchorderup('searchby-large')">
                     </div>
                 </div>
             </div>
@@ -66,6 +66,7 @@
                                         <th>Quantity</th>
                                         <th>Unit Price</th>
                                         <th>Net Price</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody class="table-danger" id="tableupdelbody">

@@ -76,7 +76,7 @@ let itemsarrayhome=JSON.parse(localStorage.getItem("Items")) || [
 ];
 localStorage.setItem("Items",JSON.stringify(itemsarrayhome));
 
-let itemcounthome=JSON.parse(localStorage.getItem("itemcount")) || 0 ;
+let itemcounthome=JSON.parse(localStorage.getItem("itemcount")) || 46 ;
 localStorage.setItem("itemcount",JSON.stringify(itemcounthome));
 
 // Order related LocalStorages
@@ -92,20 +92,39 @@ localStorage.setItem("Cart",JSON.stringify(carthome));
 let TotalPricehome=JSON.parse(localStorage.getItem("TotalPrice")) || 0;
 localStorage.setItem("TotalPrice",JSON.stringify(TotalPricehome));
 
+// Report Related LocalStorages.
+let monthlyindexhome=JSON.parse(localStorage.getItem("monthlyindex")) || 0;
+localStorage.setItem("monthlyindex",JSON.stringify(monthlyindexhome));
+
+let annualindexhome=JSON.parse(localStorage.getItem("annualindex")) || 0;
+localStorage.setItem("annualindex",JSON.stringify(annualindexhome));
+
+let itemcountindexhome=JSON.parse(localStorage.getItem("itemcountindex")) || 0;
+localStorage.setItem("itemcountindex",JSON.stringify(itemcountindexhome));
+
+let bestcustomerindexhome=JSON.parse(localStorage.getItem("bestcustomerindex")) || 0;
+localStorage.setItem("bestcustomerindex",JSON.stringify(bestcustomerindexhome));
+
+
+
 function cashierloginvalidation(username,password){
     cashierarrayhome=JSON.parse(localStorage.getItem("Cashier"));
+    let founduser=false;
+    let foundpass=false;
     for(let i=0 ;i<cashierarrayhome.length;i++){
         if(cashierarrayhome[i].username==username){
             if(cashierarrayhome[i].password==password){
-                return true
+                return true;
             }else{
-                alert("Password Is Wrong !!");
-                return false;
+                found=false;
             }
         }else{
-            alert("Username Is Not Registered !!");
-            return false;
+            found=false;
         }
+    }
+    if(found==false){
+        alert("Username or Password Invalid !!");
+        return found; 
     }
 }
 function loginform() {
