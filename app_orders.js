@@ -1,6 +1,6 @@
 let orderarray = JSON.parse(localStorage.getItem("Order"));
 
-let ordercount = JSON.parse(localStorage.getItem("ordercount")) || 0;
+let ordercount = JSON.parse(localStorage.getItem("ordercount"));
 
 let cart=JSON.parse(localStorage.getItem("Cart"));
 
@@ -9,13 +9,13 @@ let TotalPrice=JSON.parse(localStorage.getItem("TotalPrice"));
 function GenarateOrderID() {
     ordercount = JSON.parse(localStorage.getItem("ordercount"));
     let str = "";
-    if (ordercount - 1 < 9) {
+    if (ordercount< 9) {
         str = "ORD-000" + (ordercount);
-    } else if (size - 1 < 99) {
+    } else if (ordercount< 99) {
         str = "ORD-00" + (ordercount);
-    } else if (size - 1 < 999) {
+    } else if (ordercount< 999) {
         str = "ORD-0" + (ordercount);
-    } else if (size - 1 < 9999) {
+    } else if (ordercount< 9999) {
         str = "ORD-" + (ordercount);
     }
     return str;
@@ -56,7 +56,7 @@ function searchitemtorder(id){
 }
 function addtocart(){
     TotalPrice = JSON.parse(localStorage.getItem("TotalPrice"));
-    itemsarray = JSON.parse(localStorage.getItem("Items")) || itemsarray;
+    itemsarray = JSON.parse(localStorage.getItem("Items"));
     
     cart =JSON.parse(localStorage.getItem("Cart"));
     const qty=document.getElementById("qty").value;
@@ -68,27 +68,33 @@ function addtocart(){
         }else{
             if(searchindex==null){
                 alert("Search An Item !!")
+            }else{ 
+                if(itemsarray[searchindex].stock>qty){
+                    const price=qty * itemsarray[searchindex].unitprice;
+                    const discount=itemsarray[searchindex].disrate;
+                    const netvalue=price*((100-discount)/100);
+                    TotalPrice+=netvalue;
+                    localStorage.setItem("TotalPrice",JSON.stringify(TotalPrice));
+                    cart.push(
+                        {
+                            itemid:itemsarray[searchindex].itemid,
+                            name:itemsarray[searchindex].name,
+                            unitprice:itemsarray[searchindex].unitprice,
+                            qty:qty,
+                            netprice:netvalue
+                        }
+                    )
+                    localStorage.setItem("Cart",JSON.stringify(cart));
+                    alert("Item Added To Cart Successfully !!");
+                    document.getElementById("tablebody").innerHTML="";
+                    document.getElementById("searchby-small").value="";
+                    document.getElementById("searchby-large").value="";
+                    document.getElementById("qty").value=""; 
+                }else{
+                    alert("Not Enough Stock Level !")
+                }                   
             }
-            const price=qty * itemsarray[searchindex].unitprice;
-            const discount=itemsarray[searchindex].disrate;
-            const netvalue=price*((100-discount)/100);
-            TotalPrice+=netvalue;
-            localStorage.setItem("TotalPrice",JSON.stringify(TotalPrice));
-            cart.push(
-                {
-                    itemid:itemsarray[searchindex].itemid,
-                    name:itemsarray[searchindex].name,
-                    unitprice:itemsarray[searchindex].unitprice,
-                    qty:qty,
-                    netprice:netvalue
-                }
-            )
-            localStorage.setItem("Cart",JSON.stringify(cart));
-            alert("Item Added To Cart Successfully !!");
-            document.getElementById("tablebody").innerHTML="";
-            document.getElementById("searchby-small").value="";
-            document.getElementById("searchby-large").value="";
-            document.getElementById("qty").value="";
+            
         }
     } 
 }
@@ -137,6 +143,15 @@ function confirmorder(){
     if(customerid==""){
         alert("Customer ID Required !!");
     }else{
+        itemsarray = JSON.parse(localStorage.getItem("Items"));
+        itemlist.forEach(item => {
+            itemsarray.forEach(element => {
+                if(item.itemid==element.itemid){
+                    element.stock=element.stock-item.qty;
+                }
+            });
+        });
+        localStorage.setItem("Items",JSON.stringify(itemsarray));
         cart=[];
         localStorage.setItem("Cart",JSON.stringify(cart));
         if(validatecustomer(customerid)){
@@ -174,8 +189,9 @@ function searchorder(id,numtaken){
     num=numtaken; 
     let searchby=document.getElementById(id).value;
     let tablebody=document.getElementById("tablebody");
+    tablebody.innerHTML=``;
     if(searchindexorder!==""){
-        orderarray = JSON.parse(localStorage.getItem("Order")) || orderarray; 
+        orderarray = JSON.parse(localStorage.getItem("Order")); 
         let found=false;
         for (let i = 0; i < orderarray.length; i++) {
             if(orderarray[i].orderid === searchby){
@@ -191,23 +207,21 @@ function searchorder(id,numtaken){
                 tablebody.innerHTML=order;
                 found=true;
                 searchindexorder=i;
-                break;
             }else if(orderarray[i].customerid === searchby){
-                let order=``;
+                console.log(`Searchby :- ${searchby}`);
+                console.log(`customer id :- ${orderarray[i].customerid}`);
+                let order=document.getElementById("tablebody").innerHTML;
                 document.getElementById("customerid").value=orderarray[i].customerid;
-                orderarray.forEach(data => {
                     order+=  `   <tr>
-                                <td>${data.orderid}</td>
-                                <td>${data.orderdate}</td>
-                                <td>${data.TotalPrice}</td>
+                                <td>${orderarray[i].orderid}</td>
+                                <td>${orderarray[i].orderdate}</td>
+                                <td>${orderarray[i].TotalPrice}</td>
                                 <td><button value="${orderarray[i].orderid}" class="btn btn-danger" onclick="vieworder(this.value)">View More</button</td>
                             </tr>
                         `
-                });
                 tablebody.innerHTML=order;
                 found=true;
                 searchindexorder=i;
-                break;
             } 
             
         }
@@ -338,7 +352,14 @@ function searchorderdel(id){
         searchindexorder=null
     }
 }
-
+function checkout() {
+    cart=JSON.parse(localStorage.getItem("Cart"));
+    if (cart.length==0) {
+        alert("Cart Is Empty");
+    }else{
+        cashierordercheckoutpage();
+    }
+}
 function updateorder() {
     orderarray = JSON.parse(localStorage.getItem("Order")) || orderarray;
     if (searchindexorder === null) {

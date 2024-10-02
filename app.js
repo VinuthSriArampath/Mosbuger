@@ -83,7 +83,7 @@ localStorage.setItem("itemcount",JSON.stringify(itemcounthome));
 let orderarrayhome = JSON.parse(localStorage.getItem("Order")) || [];
 localStorage.setItem("Order", JSON.stringify(orderarrayhome));
 
-let ordercounthome = JSON.parse(localStorage.getItem("ordercount")) || 0;
+let ordercounthome = JSON.parse(localStorage.getItem("ordercount")) || 1;
 localStorage.setItem("ordercount",JSON.stringify(ordercounthome));
 
 let carthome=JSON.parse(localStorage.getItem("Cart")) || [];

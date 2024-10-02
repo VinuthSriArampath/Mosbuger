@@ -32,6 +32,12 @@
     border: none;
 }
 
+.button-color :hover{
+    background-image: linear-gradient(to right, #000000, #FF0000);
+    color: white;
+    border: none;
+}
+
 .input{
     border: none;
 }
